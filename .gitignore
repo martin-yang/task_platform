@@ -11,3 +11,7 @@
 /log/*.log
 
 /tmp
+Gemfile.lock
+
+db/*.sqlite3
+lib/templates/*
