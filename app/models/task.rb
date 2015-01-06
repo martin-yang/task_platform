@@ -1,6 +1,12 @@
 class Task < ActiveRecord::Base
-  validates :content, :num, presence: true
+  validates :content, :num, :state, presence: true
   before_validation :build_num
+
+  state_machine :state, :initial => :new do
+    event :close do
+      transition :new => :closed
+    end
+  end
 
   private
   def build_num
