@@ -3,14 +3,14 @@ require 'rails_helper'
 
 describe Task, :type => :model do
   it "reate a task" do
-    Task.new(content: "task1").save == true
-    Task.first.num != nil
+  	expect(Task.new(content: "task1").save).to eq(true)
+    expect(Task.first.num != nil).to eq(true)
     expect(Task.first.state).to eq("new")
   end
 
   describe "close task" do
     before do
-      FactoryGirl.create(:user)
+      FactoryGirl.create(:task)
     end
 
     it "close task" do
