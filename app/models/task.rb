@@ -23,7 +23,7 @@ class Task < ActiveRecord::Base
 
   def create_date_record
     now_date = Time.now
-    date_record = DateRecord.find_or_create_or(year: now_date.year, month: now_date.month, day: now_date.day)
+    date_record = DateRecord.find_or_create_by(year: now_date.year, month: now_date.month, day: now_date.day)
     self.update_attributes(date_record: date_record)
   end
 end
