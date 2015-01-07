@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106232619) do
+ActiveRecord::Schema.define(version: 20150107002713) do
+
+  create_table "date_records", force: :cascade do |t|
+    t.string   "year"
+    t.string   "month"
+    t.string   "day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.text     "content"
@@ -19,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150106232619) do
     t.string   "num"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "date_record_id"
   end
 
 end
