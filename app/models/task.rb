@@ -5,6 +5,8 @@ class Task < ActiveRecord::Base
 
   belongs_to :date_record, class_name: "DateRecord"
 
+  after_create :create_date_record
+
   state_machine :state, :initial => :new do
     event :close do
       transition :new => :closed
@@ -17,5 +19,11 @@ class Task < ActiveRecord::Base
       now_date = Time.now
       self.num, self.state = "#{now_date.year}#{now_date.to_i}", "new"
     end
+  end
+
+  def create_date_record
+    now_date = Time.now
+    date_record = DateRecord.find_or_create_or(year: now_date.year, month: now_date.month, day: now_date.day)
+    self.update_attributes(date_record: date_record)
   end
 end
