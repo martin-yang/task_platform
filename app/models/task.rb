@@ -13,8 +13,7 @@ class Task < ActiveRecord::Base
   def build_number
     unless self.num
       now_date = Time.now
-      self.num = "#{now_date.year}#{now_date.to_i}"
-      self.state = "new"
+      self.num, self.state = "#{now_date.year}#{now_date.to_i}", "new"
     end
   end
 end
