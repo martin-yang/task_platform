@@ -3,6 +3,8 @@ class Task < ActiveRecord::Base
   validates :content, presence: true
   before_validation :build_number
 
+  belongs_to :date_record, class_name: "DateRecord"
+
   state_machine :state, :initial => :new do
     event :close do
       transition :new => :closed
