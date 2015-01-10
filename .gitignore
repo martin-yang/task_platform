@@ -15,3 +15,5 @@ Gemfile.lock
 
 db/*.sqlite3
 lib/templates/*
+
+*~
