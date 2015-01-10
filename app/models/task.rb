@@ -1,5 +1,4 @@
-class Task < ActiveRecord::Base
-  
+class Task < ActiveRecord::Base  
   validates :content, presence: true
   before_validation :build_number
 
