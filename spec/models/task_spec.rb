@@ -3,9 +3,8 @@ require 'rails_helper'
 
 describe Task, :type => :model do
   it "reate a task" do
-  	expect(Task.new(content: "task1").save).to eq(true)
-    expect(Task.first.num != nil).to eq(true)
-    expect(Task.first.state).to eq("new")
+    FactoryGirl.create(:task)
+    expect(Task.all.size).to eq(1)
   end
 
   describe "close task" do
@@ -16,6 +15,11 @@ describe Task, :type => :model do
     it "close task" do
       Task.first.close
       expect(Task.first.state).to eq("closed")
+    end
+
+    it "take tasks by user" do
+      expect(User.first.tasks.size).to eq(1)
+      expect(User.first.tasks.first).to eq(Task.first)
     end
   end
 end
