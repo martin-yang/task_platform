@@ -16,4 +16,8 @@ Gemfile.lock
 db/*.sqlite3
 lib/templates/*
 
+config/environments/production.rb
+
+config/environment.rb
+config/initializers/secret_token.rb
 *~
