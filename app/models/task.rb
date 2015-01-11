@@ -1,9 +1,9 @@
 class Task < ActiveRecord::Base  
-  validates :content, presence: true
+  validates :content, :user, presence: true
   before_validation :build_number
 
   belongs_to :date_record, class_name: "DateRecord"
-
+  belongs_to :user, class_name: "User"
   after_create :create_date_record
 
   state_machine :state, :initial => :new do
