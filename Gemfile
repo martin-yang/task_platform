@@ -38,7 +38,7 @@ gem 'slim'
 gem 'puma'
 
 gem 'sidekiq'
-
+gem 'rufus-scheduler'
 gem 'simple_form'
 
 gem 'cancancan'
