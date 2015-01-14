@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111110713) do
+ActiveRecord::Schema.define(version: 20150114093349) do
 
   create_table "date_records", force: :cascade do |t|
     t.string   "year"
     t.string   "month"
     t.string   "day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reminds", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "clook"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
