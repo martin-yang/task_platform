@@ -15,7 +15,7 @@ Gemfile.lock
 
 db/*.sqlite3
 lib/templates/*
-
+app/mailers/task_mailer.rb
 config/environments/production.rb
 
 config/environment.rb
