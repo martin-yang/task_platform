@@ -6,9 +6,32 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="theme-whbl pace-done">
+<div class="pace  pace-inactive">
+  <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+    <div class="pace-progress-inner"></div>
+  </div>
+  <div class="pace-activity"></div>
+</div>
 
-<%= yield %>
+<div id="theme-wrapper">
+  <!-- head -->
+  <%= render "layouts/head" %>
+
+  <div id="page-wrapper" class="container">
+    <div class="row">
+      <%= render "layouts/navicate" %>
+
+      <div id="content-wrapper">
+        <div class="row" style="opacity: 1;">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
