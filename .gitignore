@@ -13,6 +13,8 @@
 /tmp
 Gemfile.lock
 
+/public/assets/
+
 db/*.sqlite3
 lib/templates/*
 app/mailers/task_mailer.rb
