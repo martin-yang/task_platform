@@ -3,7 +3,7 @@
   <div class="user-box">
     <span class="name">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        Scarlett J.
+        <%= current_user ? current_user.email : nil %>
       </a>
     </span>
   </div>
