@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base  
-  validates :content, :user, presence: true
+  validates :name, :content, :user, presence: true
   before_validation :build_number
 
   belongs_to :date_record, class_name: "DateRecord"
