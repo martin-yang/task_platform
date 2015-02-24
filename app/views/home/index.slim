@@ -1,1 +1,9 @@
-h1 HOME
+.row
+	.col-lg-12
+	  .content-header
+	    .pull-left
+	      h1 HOME
+
+= render "statistics"
+
+= render_cell :task, :todo, user_id: current_user.id
