@@ -1,0 +1,20 @@
+.col-lg-12
+  .main-box.clearfix
+    header.main-box-header.clearfix
+      h2.pull-left Todo
+      span class="label label-success pull-right" Total:#{@todo.count}
+    .main-box-body.clearfix
+      ul.widget-todo
+        - @todo.each do |task|
+          li.clearfix
+            .name
+              .checkbox-nice
+                input type="checkbox" id="todo-1"
+                label for="todo-1" = task.name
+            .actions
+              a.table-link.badge
+                i.fa.fa-cog
+              a.table-link
+                i.fa.fa-pencil
+              a.table-link.danger
+                i.fa.fa-trash-o
