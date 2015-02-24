@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :tasks, class_name: "Task"
 
   has_and_belongs_to_many :organs, class_name: "Organ"
+
+  def today_tasks
+    DateRecord.take_tasks(Time.now).where(user: self)
+  end
 end
