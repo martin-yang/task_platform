@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :tasks
+
+  resources :home, only: [:index]
 end
