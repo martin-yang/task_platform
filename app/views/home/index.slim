@@ -4,6 +4,6 @@
 	    .pull-left
 	      h1 HOME
 
-= render "statistics"
+= render_cell :statistics, :home_navicate, user_id: current_user.id
 
 = render_cell :task, :todo, user_id: current_user.id
