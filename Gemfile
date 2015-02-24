@@ -48,6 +48,8 @@ gem 'pg'
 
 gem 'kaminari'
 
+gem 'cells'
+
 gem 'state_machine'
 
 group :development, :test do
