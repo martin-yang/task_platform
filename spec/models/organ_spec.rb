@@ -5,6 +5,10 @@ describe Organ, :type => :model do
     @user = FactoryGirl.create(:user)
     @organ = FactoryGirl.create(:organ)
   end
+
+  it "had two roles in organ" do
+    expect(@organ.actors.size).to eq(2)
+  end
   
   it "add user in organ" do
     expect(@organ.join_us(@user)).to eq(true)
