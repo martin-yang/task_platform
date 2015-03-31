@@ -1,0 +1,18 @@
+.row
+	.col-lg-12
+	  .content-header
+	    .pull-left
+	      h1 Create Task
+
+.row
+  .col-lg-6
+    .main-box
+      header class="main-box-header clearfix"
+        h2 Create Task
+      div class="main-box-body clearfix"
+        = simple_form_for @task do |f|
+          = f.input :name, label: 'Title',input_html: { class: 'form-control' }
+          = f.input :content, label: 'Content',input_html: { class: 'form-control' }
+          br
+          div class="form-group"
+            button class="form-control" type="submit" class="btn btn-primary" SAVE
