@@ -1,20 +1,38 @@
-.col-lg-12
-  .main-box.clearfix
-    header.main-box-header.clearfix
-      h2.pull-left Todo
-      span class="label label-success pull-right" Total:#{@todo.count}
-    .main-box-body.clearfix
-      ul.widget-todo
-        - @todo.each do |task|
-          li.clearfix
-            .name
-              .checkbox-nice
-                input type="checkbox" id="todo-1"
-                label for="todo-1" = task.name
-            .actions
-              a.table-link.badge
-                i.fa.fa-cog
-              a.table-link
-                i.fa.fa-pencil
-              a.table-link.danger
-                i.fa.fa-trash-o
+.row
+  .col-lg-12
+    .main-box.clearfix
+      header.main-box-header.clearfix
+        h2.pull-left Todo
+        div class="nav-no-collapse pull-right" id="header-nav"
+          ul class="nav navbar-nav pull-right"
+            li class="dropdown profile-dropdown" id="todo_setting"
+              a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                span class="hidden-xs" Total:#{@todo.count}
+                b class="caret"
+              ul class="dropdown-menu dropdown-menu-right"
+                li
+                  a href="/tasks/new"
+                    i class="fa fa-cog"
+                    span Create New Task
+      .main-box-body.clearfix
+        ul.widget-todo
+          - if @todo.size > 0
+            - @todo.each do |task|
+              li.clearfix
+                .name
+                  .checkbox-nice
+                    input type="checkbox" id="todo-1"
+                    label for="todo-1" = task.name
+                .actions
+                  a.table-link href=edit_task_path(id: task.id)
+                    i.fa.fa-pencil
+                  a.table-link.danger href=task_path(id: task.id) data-method="delete" data-confirm="Do you have delete this task?"
+                    i.fa.fa-trash-o
+          - else
+            li.clearfix
+              .name Don't have tasks.
+
+javascript:
+  $(".dropdown-toggle").on("click",function(){
+    $("#todo_setting").addClass("open");
+  })
