@@ -3,4 +3,5 @@ class TaskCell < Cell::Rails
     @todo = User.find(user[:user_id]).tasks.where(state: "new")
     render
   end
+
 end
